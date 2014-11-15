@@ -3,12 +3,19 @@ function get_btc(){
         type: "GET",
         url: "https://api.bitcoinaverage.com/ticker/USD/"
     }).success(function(data){
-        var current_btc = data.last; 
+        if (current_btc < data.last){
+          document.getElementById("net_usd_field").style.color = "#66E066";
+        }else if (current_btc > data.last){
+          document.getElementById("net_usd_field").style.color = "#FF6666";
+        }
+      
+        current_btc = data.last; 
         //var current_usd = Math.floor(net_btc * current_btc * 100)/100;
         var current_usd = (net_btc * current_btc).toFixed(2);
         $("h2").html("1 BTC = $" + current_btc);
         $("#net_usd_field").html("$" + current_usd); 
         document.title = "Worth: $" + current_usd;
+          
     });
 }
 

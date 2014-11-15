@@ -21,9 +21,9 @@
   <script type="text/javascript">
     var net_btc = 0;
     var wallets = [];
-    
+    var current_btc = 0; 
     get_btc();
-    //update price of btc every 10 seconds
+    //update price of btc every 5 seconds
     setInterval(function(){get_btc();}, 5000);
 
     $('#submit_pubkey').click(function(){
