@@ -17,29 +17,19 @@
     </script>
     <div class="container">
         <h1></h1>
+        <h3></h3>
         <h2></h2>
   <div id="totalbtc"></div>
 
 <script type="text/javascript">
-  $(function() {
-    var api_key_id = 'a6482aa55ab1ae6fbb8bd12b46ccd80d';
-    var addrs = '194ZkLgJuc4XqGJtMK6N9iA2kZ1e81r39k';
-    var url = 'https://api.chain.com/v2/bitcoin/addresses/' + addrs;
-    $.ajax({
-      url: url,
-      data: {'api-key-id': api_key_id},
-      type: 'GET',
-
-      success: function(data) {
-        console.log(data);
-        $("h1").append((data[0].total.balance)  * .00000001 + " BTC"); 
-      }
-    });
-  });
-  
-</script>
-<script type="text/javascript">
-  get_btc()
+  var total_btc = 0;
+  get_wallet_balance('194ZkLgJuc4XqGJtMK6N9iA2kZ1e81r39k', function(output){
+  total_btc += output;
+  alert(total_btc);
+});
+  //$("h3").html(get_wallet_balance('194ZkLgJuc4XqGJtMK6N9iA2kZ1e81r39k', function(output)));
+  get_btc();
+  setInterval(function(){get_btc();}, 10000);
 </script>
 
 <script>
