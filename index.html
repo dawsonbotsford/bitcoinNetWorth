@@ -1,0 +1,79 @@
+<!doctype html>
+<head>
+    <title>stuff</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:700,400">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./js/main.js" language="javascript" type="text/javascript"></script>
+    <script src="./js/bootstrap.min.js" language="javascript" type="text/javascript"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/userlib.js"></script>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+    </script>
+    <div class="container">
+        <h1></h1>
+        <h2></h2>
+  <div id="totalbtc"></div>
+
+<script type="text/javascript">
+  $(function() {
+    var api_key_id = 'a6482aa55ab1ae6fbb8bd12b46ccd80d';
+    var addrs = '194ZkLgJuc4XqGJtMK6N9iA2kZ1e81r39k';
+    var url = 'https://api.chain.com/v2/bitcoin/addresses/' + addrs;
+    $.ajax({
+      url: url,
+      data: {'api-key-id': api_key_id},
+      type: 'GET',
+
+      success: function(data) {
+        console.log(data);
+        $("h1").append((data[0].total.balance)  * .00000001 + " BTC"); 
+      }
+    });
+  });
+ // $("h2").append(btctousd(1)); 
+  
+</script>
+<script type="text/javascript">
+  $(function() {
+ //   var api_key_id = 'a6482aa55ab1ae6fbb8bd12b46ccd80d';
+  //  var addrs = '194ZkLgJuc4XqGJtMK6N9iA2kZ1e81r39k';
+    var url = 'https://api.bitfinex.com/v1/pubticker/btcusd';
+    $.ajax({
+      url: url,
+      //data: {'api-key-id': api_key_id},
+      type: 'GET',
+
+      success: function(data) {
+        console.log(data);
+//        $("h2").append((datatotal.balance)  * .00000001 + " BTC"); 
+      }
+    });
+  });
+  
+</script>
+
+<script>
+/*
+    var conn = new WebSocket("wss://ws.chain.com/v2/notifications");
+
+    conn.onopen = function (ev) {
+      var req = {type: "new-transaction", block_chain: "bitcoin"};
+      conn.send(JSON.stringify(req));
+    };
+
+    conn.onmessage = function (ev) {
+      var x = JSON.parse(ev.data);
+      console.log(x);
+    };
+*/
+</script>
+
+          <div class="footer">Powered by <a href="https://chain.com/">Chain</a></div>
+</body>
+</div>
