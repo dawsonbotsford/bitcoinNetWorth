@@ -18,34 +18,26 @@
     <div class="container">
         <input id="new_pubkey" type="text" class="form-control" placeholder="Public Key">
         <button id="submit_pubkey" type="button" class="btn btn-default">Submit</button>
-        <h1 id="net_btc">0 BTC</h1>
-        <h2></h2>
-  <div id="totalbtc"></div>
+        <div id="net_usd_field">$0.00</div>
+        <h1 id="net_btc_field">0 BTC</h1>
+        <h2 id="btc_usd_field">></h2>
 
 <script type="text/javascript">
-  var total_btc = 0;
+  var net_btc = 0;
   var wallets = [];
- // var wallets = ['1PekgBqkCa88Qdx4779eKBYrmy6pJoJdjP', '194ZkLgJuc4XqGJtMK6N9iA2kZ1e81r39k'];
-  for (i in wallets){
-    get_wallet_balance(wallets[i], function(output){
-      total_btc += output;
-      $("h1").html(total_btc + " BTC");
-    });
-  }
-
+  
   get_btc();
   //update price of btc every 10 seconds
-  setInterval(function(){get_btc();}, 10000);
+  setInterval(function(){get_btc();}, 5000);
 
   $('#submit_pubkey').click(function(){
       wallets.push(document.getElementById("new_pubkey").value);
       document.getElementById("new_pubkey").value = "";
     //wallets.push('1PekgBqkCa88Qdx4779eKBYrmy6pJoJdjP');
     //get_wallet_balance('1PekgBqkCa88Qdx4779eKBYrmy6pJoJdjP', function());
-//    alert("CLICKED");
     get_wallet_balance(wallets.pop(), function(output){
-      total_btc += output;
-      $("h1").html(total_btc + " BTC");
+      net_btc += output;
+      $("#net_btc_field").html(net_btc + " BTC");
     }); 
   });
 

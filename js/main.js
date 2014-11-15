@@ -4,9 +4,12 @@ function get_btc(){
         url: "https://api.bitcoinaverage.com/ticker/USD/"
     }).success(function(data){
       //alert("btc in account: " + data.last );
-        $("h2").html("1 USD = " + data.last + " USD");
+        var current_btc = data.last 
+        $("h2").html("1 USD = " + current_btc + " USD");
+//        debugger;
+        $("#net_usd_field").html("$" + net_btc * current_btc); 
+        //$("net_usd").html("HELLO WORLD"); 
     });
-
 }
 
 function get_wallet_balance(pub_key, callback){

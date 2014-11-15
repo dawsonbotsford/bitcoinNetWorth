@@ -1,22 +1,10 @@
 h1 {
     font-size: 120px;
     font-weight: 800;
-    margin-top: 30px;
     margin-bottom: 50px;
 }
 p {
     font-size: 25px;
-}
-.form-control{
-  margin-top: 230px;
-  width: 410px;
-  text-align: center;
-
-  margin-right: auto;
-  margin-left: auto;
-}
-#submit_pubkey{
-  margin-top: 2%;
 }
 body {
     font-family: "Montserrat", arial, sans-serif;
@@ -29,11 +17,16 @@ a {
     color: white;
     font-weight: bold;
 }
-.modal-content{
-  margin-top: 250px;
-  background-color: #a9a9a9;
-  text-align: left;
+.form-control{
+  margin-top: 230px;
+  width: 410px;
+  text-align: center;
 
+  margin-right: auto;
+  margin-left: auto;
+}
+#submit_pubkey{
+  margin-top: 2%;
 }
 .btn{
   width: 250px;
@@ -45,10 +38,9 @@ a {
    right:30px;
    font-size: 20px;
 }
-
-.current_user{
-    position: absolute;
-    right: 30px;
-    top: 10px;
+#new_usd {
+    font-size: 120px;
+    font-weight: 800;
+    margin-top: 30px;
+   
 }
-
