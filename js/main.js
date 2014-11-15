@@ -9,7 +9,6 @@ function get_btc(){
         $("h2").html("1 BTC = $" + current_btc);
         $("#net_usd_field").html("$" + current_usd); 
         document.title = "Worth: $" + current_usd;
-       */
     });
 }
 
