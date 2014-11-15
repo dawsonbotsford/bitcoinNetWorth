@@ -3,7 +3,8 @@ function get_btc(){
         type: "GET",
         url: "https://api.bitcoinaverage.com/ticker/USD/"
     }).success(function(data){
-        $("h2").html("$" + data.last);
+      //alert("btc in account: " + data.last );
+        $("h2").html("1 USD = " + data.last + " USD");
     });
 
 }
@@ -18,8 +19,7 @@ function get_wallet_balance(pub_key, callback){
       type: 'GET',
       success: function(data) {
         console.log(data);
-        $("h1").append((data[0].total.balance)  * .00000001 + " BTC"); 
-        callback(data[0].total.balance);
+        callback((data[0].total.balance * .00000001));
       }
     });
 }
