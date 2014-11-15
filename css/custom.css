@@ -1,35 +1,42 @@
-h1 {
+#net_usd_field {
     font-size: 120px;
     font-weight: 800;
-    margin-bottom: 50px;
+    margin-top: 16%;
 }
-p {
-    font-size: 25px;
+#net_btc_field {
+    font-size: 80px;
+    font-weight: 800;
+    margin: 0;
 }
 body {
     font-family: "Montserrat", arial, sans-serif;
     background-color: #2980b9;
     color: white;
     text-align: center;
+    height: 100%;
+    width: 100%;
 }
 
 a {
-    color: white;
     font-weight: bold;
 }
-.form-control{
-  margin-top: 230px;
-  width: 410px;
+#new_pubkey {
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 320px;
   text-align: center;
-
-  margin-right: auto;
-  margin-left: auto;
+  float: left;
+//  margin-right: 0;
+  //margin-left: auto;
 }
 #submit_pubkey{
-  margin-top: 2%;
+  margin-top: 20px;
+  width: 320px;
+  text-align: center;
+  float: left;
 }
 .btn{
-  width: 250px;
+  width: 100px;
 }
 
 .footer {
@@ -37,10 +44,4 @@ a {
    bottom:10px;
    right:30px;
    font-size: 20px;
-}
-#new_usd {
-    font-size: 120px;
-    font-weight: 800;
-    margin-top: 30px;
-   
 }

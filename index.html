@@ -1,65 +1,45 @@
 <!doctype html>
-<head>
-    <title>stuff</title>
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/custom.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:700,400">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="./js/main.js" language="javascript" type="text/javascript"></script>
-    <script src="./js/bootstrap.min.js" language="javascript" type="text/javascript"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/userlib.js"></script>
+<html>
+  <head>
+      <title>Net worth: $0.00</title>
+      <link href="./css/bootstrap.min.css" rel="stylesheet">
+      <link href="./css/custom.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat:700,400">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="./js/main.js" language="javascript" type="text/javascript"></script>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  </head>
 
-</head>
+  <body>
+          <input id="new_pubkey" type="text" class="form-control" placeholder="Public Key">
+          <button id="submit_pubkey" type="button submit" class="btn btn-default">Submit</button>
+      <div class="container">
+          <div id="net_usd_field">$0.00</div>
+          <h1 id="net_btc_field">0 BTC</h1>
+          <h2 id="btc_usd_field">></h2>
 
-<body>
-    <script type="text/javascript">
-    </script>
-    <div class="container">
-        <input id="new_pubkey" type="text" class="form-control" placeholder="Public Key">
-        <button id="submit_pubkey" type="button" class="btn btn-default">Submit</button>
-        <div id="net_usd_field">$0.00</div>
-        <h1 id="net_btc_field">0 BTC</h1>
-        <h2 id="btc_usd_field">></h2>
+  <script type="text/javascript">
+    var net_btc = 0;
+    var wallets = [];
+    
+    get_btc();
+    //update price of btc every 10 seconds
+    setInterval(function(){get_btc();}, 5000);
 
-<script type="text/javascript">
-  var net_btc = 0;
-  var wallets = [];
-  
-  get_btc();
-  //update price of btc every 10 seconds
-  setInterval(function(){get_btc();}, 5000);
+    $('#submit_pubkey').click(function(){
+        wallets.push(document.getElementById("new_pubkey").value);
+        document.getElementById("new_pubkey").value = "";//clear pubkey field
+      //wallets.push('1PekgBqkCa88Qdx4779eKBYrmy6pJoJdjP');
+      get_wallet_balance(wallets.pop(), function(output){
+        net_btc += output;
+        $("#net_btc_field").html(net_btc.toFixed(6) + " BTC");
+        get_btc();
+      }); 
+    });
 
-  $('#submit_pubkey').click(function(){
-      wallets.push(document.getElementById("new_pubkey").value);
-      document.getElementById("new_pubkey").value = "";
-    //wallets.push('1PekgBqkCa88Qdx4779eKBYrmy6pJoJdjP');
-    //get_wallet_balance('1PekgBqkCa88Qdx4779eKBYrmy6pJoJdjP', function());
-    get_wallet_balance(wallets.pop(), function(output){
-      net_btc += output;
-      $("#net_btc_field").html(net_btc + " BTC");
-    }); 
-  });
+  </script>
 
-
-</script>
-
-<script>
-/*
-    var conn = new WebSocket("wss://ws.chain.com/v2/notifications");
-
-    conn.onopen = function (ev) {
-      var req = {type: "new-transaction", block_chain: "bitcoin"};
-      conn.send(JSON.stringify(req));
-    };
-
-    conn.onmessage = function (ev) {
-      var x = JSON.parse(ev.data);
-      console.log(x);
-    };
-*/
-</script>
-
-          <div class="footer">Powered by <a href="https://chain.com/">Chain</a></div>
-</body>
-</div>
+  <div class="footer">Powered by <a href="https://chain.com/">Chain</a></div>
+  </body>
+  </div>
+</html>
