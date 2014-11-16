@@ -8,16 +8,18 @@
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <script src="./js/main.js" language="javascript" type="text/javascript"></script>
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+      <script src="./js/cookie.js" language="javascript" type="text/javascript"></script>
   </head>
 
   <body>
           <input id="new_pubkey" type="text" class="form-control" placeholder="Public Key">
           <button id="submit_pubkey" type="button submit" class="btn btn-default">Submit</button>
+          <button id="username1" type="button" class="btn btn-default" position="absolute" right="0" top="0"></button>
       <div class="container">
           <div id="net_usd_field">$0.00</div>
           <h1 id="net_btc_field">0 BTC</h1>
           <h2 id="btc_usd_field">></h2>
-
+      </div>
   <script type="text/javascript">
     var net_btc = 0;
     var wallets = [];
@@ -29,17 +31,20 @@
     $('#submit_pubkey').click(function(){
         wallets.push(document.getElementById("new_pubkey").value);
         document.getElementById("new_pubkey").value = "";//clear pubkey field
-      //wallets.push('1PekgBqkCa88Qdx4779eKBYrmy6pJoJdjP');
-      get_wallet_balance(wallets.pop(), function(output){
+      //1PekgBqkCa88Qdx4779eKBYrmy6pJoJdjP
+//        debugger;
+      get_wallet_balance(wallets[wallets.length - 1], function(output){
         net_btc += output;
         $("#net_btc_field").html(net_btc.toFixed(6) + " BTC");
         get_btc();
+        $('#username1').append(wallets[wallets.length - 1] + ",  "); 
+        setCookie("key1", "value1", 7);
+        alert(document.cookie);
+        //debugger;
       }); 
     });
 
   </script>
-
-  <div class="footer">Powered by <a href="https://chain.com/">Chain</a></div>
-  </body>
   </div>
+</body>
 </html>
