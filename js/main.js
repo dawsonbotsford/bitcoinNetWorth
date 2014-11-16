@@ -4,7 +4,7 @@ function get_btc(){
         url: "https://api.bitcoinaverage.com/ticker/USD/"
     }).success(function(data){
         if (current_btc < data.last){
-          document.getElementById("net_usd_field").style.color = "#66E066";
+          document.getElementById("net_usd_field").style.color = "#009933";
         }else if (current_btc > data.last){
           document.getElementById("net_usd_field").style.color = "#FF6666";
         }
