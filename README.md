@@ -1,6 +1,6 @@
 coinorado
 ========
-Shows your current net worth by using one or more public bitcoin addresses.
+Shows your current net worth by accepting one or more public bitcoin addresses. Publicly available at [dawsonbotsford.github.io](http://dawsonbotsford.github.io)
 
 Bitcoin hackathon November 14, 2014 in Boulder, CO.
 
