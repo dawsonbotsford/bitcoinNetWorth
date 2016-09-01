@@ -27,13 +27,13 @@
   margin-bottom:99%;
   position:absolute;
 }
-#net_usd_field {
+#netUsdField {
     font-size: 120px;
     font-weight: 800;
     margin-top: 11%;
     transition: color 2s;
 }
-#net_btc_field {
+#netBitcoinField {
     font-size: 80px;
     font-weight: 800;
     margin: 0;
@@ -54,7 +54,7 @@ body {
 a {
     font-weight: bold;
 }
-#new_pubkey {
+#newPublicKey {
   margin-left: 20px;
   margin-top: 40px;
   width: 350px;
@@ -62,7 +62,7 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
-#submit_pubkey{
+#submitPublicKey{
   margin-top: 10px;
   width: 80px;
   text-align: center;
